@@ -1,0 +1,11 @@
+﻿I'm sorry, but errors were detected in your script. Please correct the
+errors listed below, and try again.
+
+
+File "game/script.rpy", line 42: invalid syntax
+    pov "My name is [povname]!"
+         ^
+    
+
+Ren'Py Version: Ren'Py 8.0.3.22090809
+Sat Sep 17 12:10:57 2022
