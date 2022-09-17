@@ -2,10 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 42: invalid syntax
-    pov "My name is [povname]!"
-         ^
-    
+File "game/script.rpy", line 56: expected statement.
+    choice("Make a choice")
+                           ^
 
 Ren'Py Version: Ren'Py 8.0.3.22090809
-Sat Sep 17 12:10:57 2022
+Sat Sep 17 12:49:05 2022
