@@ -1,15 +1,15 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/script.rpy", line 41, in script
-    pov "My name is [povname]!"
+  File "game/script.rpy", line 30, in script
+    MC "How are you?"
 KeyError: 'povname'
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/script.rpy", line 41, in script
-    pov "My name is [povname]!"
+  File "game/script.rpy", line 30, in script
+    MC "How are you?"
   File "C:\Users\fiona\Documents\renpy-8.0.3-sdk\renpy\ast.py", line 921, in execute
     renpy.exports.say(who, what, *args, **kwargs)
   File "C:\Users\fiona\Documents\renpy-8.0.3-sdk\renpy\exports.py", line 1373, in say
@@ -33,4 +33,4 @@ KeyError: 'povname'
 Windows-10-10.0.19044 AMD64
 Ren'Py 8.0.3.22090809
 HTN 1.0
-Sat Sep 17 12:10:27 2022
+Sat Sep 17 12:24:11 2022
