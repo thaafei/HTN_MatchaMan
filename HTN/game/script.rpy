@@ -1,4 +1,4 @@
-﻿# The script of the game goes in this file.
+# The script of the game goes in this file.
 
 # Declare characters used by this game. The color argument colorizes the
 # name of the character.
@@ -307,6 +307,7 @@ label start:
         MM "Tsk you'll regret this someday, you have no idea what I'm capable of.."
         scene bg blackscreen
         "GOOD ENDING"
+        return
 
         
     label Janitor_Ending:
@@ -318,6 +319,7 @@ label start:
         "{i}YOU'RE NEXT{/i}"
         scene bg blackscreen
         "BAD ENDING"
+        return
 
     label Classmate_Ending:
         scene bg bed_night
@@ -328,6 +330,7 @@ label start:
         "{i}YOU'RE NEXT{/i}"
         scene bg blackscreen
         "BAD ENDING"
+        return
     
     # This ends the game.
 
