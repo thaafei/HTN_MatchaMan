@@ -70,8 +70,8 @@ label start:
 
     "As the city's best detective, it is your job to interview the death of a student from the local prepatory school."
 
+    "Jasmine Gray, a senior at Pleasant Valley, disappeared last night and was discovered to have been murdered. "
     "There are no traces of the murderer except for a bit of matcha powder left on the scene, a hallmark of the once infamous Matcha Man killer."
-
     "He disappeared off the grid years ago: could he have possibly come back?"
 
     MC "Well, it's time to start the day."
@@ -86,9 +86,72 @@ label start:
             jump Classmate_Begin
     
     label Teacher_Begin:
-        return
+        show MM
+        menu: 
+            "State your name and occupation.":
+                jump Teacher_Intro1
+            "What's your name?":
+                jump Teacher_Intro2
+
+    label Teacher_Intro1:
+        show MM
+        MM "Jerry Holmes, and a teacher, obviously."
+        jump Teacher_P2
+    
+    label Teacher_Intro2:
+        show MM
+        MM "The kids call me Mr.Holmes, I teach their English and Foreign Language Classes."
+        jump Teacher_P2
+    
+    label Teacher_P2:
+        show MM
+        MC "What can you tell me about that day, did you notice the victim acting strange?"
+
+        MM "Jasmine did seem a litte reserved. From the classroom gossip, it sounds like her boyfriend broke up with her, something about adultary? "
+
+        menu:
+            "Tell me about this boyfriend of hers.":
+                jump Teacher_P3_1
+            "Tell me more about you.":
+                jump Teacher_P3_2
+
+    label Teacher_P3_1:
+        show MM
+        MM "Kevin? He does well enough in school and sports. Although he does have a bit of a hot-temper."
+        MC "A hot-temper?"
+        MM "Yes, the reason he transferred to our prepatory was because he would frequently get into fights at his old school."
+        MC "Hmm.. noted."
+        jump Teacher_Last
+
+
+    label Teacher_P3_2:
+        show MM Sad
+        MM "I'm devasted, it's a sad day when a student misses a class for a day... now this..."
+        MM "Jasmine was always a ray of sunshine, she had an interest in tea as well."
+        MM "We would frequently discuss on tea brewing techniques after classes..."
+        "........."
+        MM "I'm sorry, I need a minute.."
+        MC "Of course"
+        jump Teacher_Last
+
+    label Teacher_Last:
+        hide MM Sad
+        hide MM
+
+        MC "After I finish talking to the teacher, I assess my choices."
+        menu:
+            "Talk to The Teacher again.":
+                jump Teacher_Begin
+            "Talk to The Classmate":
+                jump Classmate_Begin   
+            "Talk to The Janitor.":
+                jump Janitor_Begin
+            "Make your decision.":
+                jump End_Choice
+
     label Janitor_Begin:
         return
+
     label Classmate_Begin:
         show SC
         menu:
@@ -96,6 +159,7 @@ label start:
                 jump Classmate_Intro1
             "Well, go on.":
                 jump Classmate_Intro2
+
     label Classmate_Intro1:
         SC "My name is Kevin. I'm a classmate of Jasmine."
         jump Classmate_P2
@@ -112,6 +176,7 @@ label start:
                 jump Classmate_P2_1
             "What was your relationship like?":
                 jump Classmate_P2_2
+
     label Classmate_P2_1:
         show SC Angry
         SC "Something like that."
@@ -129,6 +194,7 @@ label start:
                 jump Classmate_P3_1
             "What were you doing that night?":
                 jump Classmate_P3_2
+
     label Classmate_P3_1:
         SC "I was in Mr. Holmes class last period."
         jump Classmate_P4
@@ -148,14 +214,18 @@ label start:
     label Classmate_P4_1:
         SC "I don't know much about him, only that I've never seen him without his green tea."
         jump Classmate_Last
+
     label Classmate_P4_2:
         SC "He's been working this job for as long as anyone can remember. Don't know why, though— he hates it here, hate us kids specifically."
         SC "Says it's because we always leave our bubble tea cups around."
         jump Classmate_Last
+
     label Classmate_Last:
         hide SC
         MC "After I finish talking to the student, I assess my choices."
         menu:
+            "Talk to The Classmatea gain.":
+                jump Classmate_Begin
             "Talk to The Teacher.":
                 jump Teacher_Begin
             "Talk to The Janitor.":
