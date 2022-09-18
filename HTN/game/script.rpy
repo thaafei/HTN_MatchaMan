@@ -179,13 +179,13 @@ label start:
     label Janitor_Ending:
         return
     label Classmate_Ending:
-        scene bed_night
+        scene bg bed_night
         MC "After the classmate Kevin was convicted for the murder using my evidence, I felt at ease. The city was safe."
         MC "When I returned home, however, something seemed to overwhelm me. The smell of...matcha."
         MC "It must be a trick. Surely."
         MC "But when I turend around, I saw it— the letter, and the tell tale dust of matcha powder right on top."
         "{i}YOU'RE NEXT{/i}"
-        scene blackscreen
+        scene bg blackscreen
         "BAD ENDING"
     
     # This ends the game.
