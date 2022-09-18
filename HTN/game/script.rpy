@@ -107,7 +107,7 @@ label start:
         show MM
         MC "What can you tell me about that day, did you notice the victim acting strange?"
 
-        MM "Jasmine did seem a litte reserved. From the classroom gossip, it sounds like her boyfriend broke up with her, something about adultary? "
+        MM "Jasmine did seem a litte reserved. From the classroom gossip, it sounds like her boyfriend broke up with her, something about adultery? "
 
         menu:
             "Tell me about this boyfriend of hers.":
