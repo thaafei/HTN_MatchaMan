@@ -1,4 +1,4 @@
-# The script of the game goes in this file.
+﻿# The script of the game goes in this file.
 
 # Declare characters used by this game. The color argument colorizes the
 # name of the character.
@@ -86,6 +86,7 @@ label start:
         "The Classmate":
             jump Classmate_Begin
     
+    #Teacher Route
     label Teacher_Begin:
         show MM
         menu: 
@@ -150,9 +151,55 @@ label start:
             "Make your decision.":
                 jump End_Choice
 
+#JANITOR ROUTE
     label Janitor_Begin:
-        return
+        show JC
+        menu:
+            "Good morning, can I have a minute?":
+                jump Janitor_Intro1
+            "Hey! I need to talk to you!":
+                jump Janitor_Intro2
+    label Janitor_Intro1:
+        JC "Sure, whaddya need?"
+        jump Janitor_P2
+    label Janitor_Intro2:
+        show JC Angry
+        JC "Yo! Watch your tone! *tsk* You and all these kids keep testing my limits! Leaving your bubble tea cups everywhere and giving me attitude..."
+        jump Janitor_P2
 
+    label Janitor_P2:
+        MC "I'm here to investigate the murder of Jasmine Gray."
+        menu:
+            "Did you know her?":
+                jump Janitor_P3
+            "Did you witness any suspicious behaviour on campus before her death?":
+                jump Janitor_P3_2
+    
+    label Janitor_P3:
+        show JC Annoyed
+        JC "Personally? No. I caught her and her boyfriend in my storage room once a few months back. Awkward. I didn't see them around for some time though."
+        jump Janitor_Last
+
+    label Janitor_P3_2:
+        show JC Annoyed
+        JC "I can't say for sure. But that Holmes guy rubs me the wrong way. Always acting like he's better than everyone even though he has a mental breakdown every time he isn't near his stupid tea tumblr. The guy has issues."
+        jump Janitor_Last
+
+    label Janitor_Last:
+        show JC
+        MC "Hmm, I see. Thanks for the info."
+        JC "Yeah, whatever."
+        MC "After I finish talking to the Janitor, I assess my choices"
+        hide JC
+        menu:
+            "Talk to The Teacher.":
+                jump Teacher_Begin
+            "Talk to The Classmate.":
+                jump Classmate_Begin
+            "Make your decision.":
+                jump End_Choice
+
+    #Classmate Route
     label Classmate_Begin:
         show SC
         menu:
@@ -247,8 +294,17 @@ label start:
                 jump Classmate_Ending
     label Teacher_Ending:
         return
+        
     label Janitor_Ending:
-        return
+        scene bg bed_night
+        MC "After the Janitor Spencer was convicted for the murder using my evidence, I felt at ease. The city was safe."
+        MC "When I returned home, however, something seemed to overwhelm me. The smell of...matcha."
+        MC "It must be a trick. Surely."
+        MC "But when I turend around, I saw it— the letter, and the tell tale dust of matcha powder right on top."
+        "{i}YOU'RE NEXT{/i}"
+        scene bg blackscreen
+        "BAD ENDING"
+
     label Classmate_Ending:
         scene bg bed_night
         MC "After the classmate Kevin was convicted for the murder using my evidence, I felt at ease. The city was safe."
