@@ -108,7 +108,7 @@ label start:
         show MM
         MC "What can you tell me about that day, did you notice the victim acting strange?"
 
-        MM "Jasmine did seem a litte reserved. From the classroom gossip, it sounds like her boyfriend broke up with her, something about adultary? "
+        MM "Jasmine did seem a litte reserved. From the classroom gossip, it sounds like her boyfriend broke up with her, something about adultery? "
 
         menu:
             "Tell me about this boyfriend of hers.":
@@ -225,7 +225,7 @@ label start:
         hide SC
         MC "After I finish talking to the student, I assess my choices."
         menu:
-            "Talk to The Classmatea gain.":
+            "Talk to The Classmate again.":
                 jump Classmate_Begin
             "Talk to The Teacher.":
                 jump Teacher_Begin
