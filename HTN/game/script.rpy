@@ -36,6 +36,7 @@ image bg blackscreen = "bg blackscreen.jpg"
 image bg outside = "bg outside.jpg"
 image bg classroom = "bg classroom.jpg"
 image bg bed_night = "bg bed_night.jpg"
+image bg end = "bg end.jpg"
 
 
 label start:
@@ -196,6 +197,8 @@ label start:
                 jump Teacher_Begin
             "Talk to The Classmate.":
                 jump Classmate_Begin
+            "Talk to The Janitor Again.":
+                jump Janitor_Begin
             "Make your decision.":
                 jump End_Choice
 
@@ -272,12 +275,13 @@ label start:
         hide SC
         MC "After I finish talking to the student, I assess my choices."
         menu:
-            "Talk to The Classmate again.":
-                jump Classmate_Begin
+            
             "Talk to The Teacher.":
                 jump Teacher_Begin
             "Talk to The Janitor.":
                 jump Janitor_Begin
+            "Talk to The Classmate again.":
+                jump Classmate_Begin
             "Make your decision.":
                 jump End_Choice
 
@@ -293,7 +297,17 @@ label start:
             "The Classmate":
                 jump Classmate_Ending
     label Teacher_Ending:
-        return
+        scene bg end
+        show MM
+        MC "Halt, Mr. Holmes, you are under arrest for the murder of Jasmine Gray."
+        MM "You must be mistaken, I would never harm my student, espically one who shares the same love for tea."
+        MC "The evidence is indisputable, now put your arms behind your back where I can see them!"
+        hide MM
+        show MM Reveal
+        MM "Tsk you'll regret this someday, you have no idea what I'm capable of.."
+        scene bg blackscreen
+        "GOOD ENDING"
+
         
     label Janitor_Ending:
         scene bg bed_night
