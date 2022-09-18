@@ -81,18 +81,59 @@ label start:
     label Janitor_Begin:
         return
     label Classmate_Begin:
+        show SC
         menu:
             "What's your name?":
                 jump Classmate_Intro1
             "Well, go on.":
                 jump Classmate_Intro2
     label Classmate_Intro1:
-        "My name is Kevin. I'm a classmate of...you know, them."
-        "Or I guess I was."
+        SC "My name is Kevin. I'm a classmate of...you know, them."
+        jump Classmate_P2
+        
     label Classmate_Intro2:
-        "Oh, you want me to just start talking? Well, fine. I'm Kevin. I'm a classmate of...you know, them."
-        "Or I guess I was."
+        SC "Oh, you want me to just start talking? Well, fine. I'm Kevin. I'm a classmate of...you know, them."
+        jump Classmate_P2
+    
+    label Classmate_P2:
+        show SC Sad
+        SC "Well, I guess I was."
+        menu: 
+            "Were you friends?":
+                jump Classmate_P2_1
+            "What was your relationship like?":
+                jump Classmate_P2_2
+    label Classmate_P2_1:
+        show SC Angry
+        SC "Something like that."
+        jump Classmate_3
 
+    label Classmate_P2_2:
+        show SC Angry
+        SC "We...used to be well acquainted."
+        jump Classmate_3
+
+    label Classmate_3:
+        jump End_Choice # TENTATIVE: will branch into further questions, just wanted to test
+
+    label End_Choice:
+        scene bg schoolsunset_1
+        "Well, that was a long day of interrogations."
+        "After everything, though, I feel like I know who the guilty party is."
+        menu:
+            "The Teacher":
+                jump Teacher_Ending
+            "The Janitor":
+                jump Janitor_Ending
+            "The Classmate":
+                jump Classmate_Ending
+    label Teacher_Ending:
+        return
+    label Janitor_Ending:
+        return
+    label Classmate_Ending:
+        return
+    
     # This ends the game.
 
     return
