@@ -1,4 +1,4 @@
-﻿# The script of the game goes in this file.
+# The script of the game goes in this file.
 
 # Declare characters used by this game. The color argument colorizes the
 # name of the character.
@@ -149,9 +149,10 @@ label start:
                 jump Janitor_Begin
             "Make your decision.":
                 jump End_Choice
-        
+
     label Janitor_Begin:
         return
+
     label Classmate_Begin:
         show SC
         menu:
@@ -159,12 +160,13 @@ label start:
                 jump Classmate_Intro1
             "Well, go on.":
                 jump Classmate_Intro2
+
     label Classmate_Intro1:
-        SC "My name is Kevin. I'm a classmate of...you know, them."
+        SC "My name is Kevin. I'm a classmate of Jasmine."
         jump Classmate_P2
         
     label Classmate_Intro2:
-        SC "Oh, you want me to just start talking? Well, fine. I'm Kevin. I'm a classmate of...you know, them."
+        SC "Oh, you want me to just start talking? Well, fine. I'm Kevin. I'm a classmate of Jasmine."
         jump Classmate_P2
     
     label Classmate_P2:
@@ -175,6 +177,7 @@ label start:
                 jump Classmate_P2_1
             "What was your relationship like?":
                 jump Classmate_P2_2
+
     label Classmate_P2_1:
         show SC Angry
         SC "Something like that."
@@ -192,8 +195,9 @@ label start:
                 jump Classmate_P3_1
             "What were you doing that night?":
                 jump Classmate_P3_2
+
     label Classmate_P3_1:
-        SC "I was in Mr. Holmes class last  period, and headed to the local bubble tea place after class."
+        SC "I was in Mr. Holmes class last period."
         jump Classmate_P4
 
     label Classmate_P3_2:
@@ -209,17 +213,19 @@ label start:
                 jump Classmate_P4_2
 
     label Classmate_P4_1:
-        SC "Apparently he just...appeared in town one day and he's been here since. I've never seen him without his green tea."
+        SC "I don't know much about him, only that I've never seen him without his green tea."
         jump Classmate_Last
+
     label Classmate_P4_2:
         SC "He's been working this job for as long as anyone can remember. Don't know why, though— he hates it here, hate us kids specifically."
         SC "Says it's because we always leave our bubble tea cups around."
         jump Classmate_Last
+
     label Classmate_Last:
         hide SC
         MC "After I finish talking to the student, I assess my choices."
         menu:
-            "Talk to The Classmate again.":
+            "Talk to The Classmatea gain.":
                 jump Classmate_Begin
             "Talk to The Teacher.":
                 jump Teacher_Begin
