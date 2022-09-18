@@ -1,11 +1,11 @@
-﻿# The script of the game goes in this file.
+# The script of the game goes in this file.
 
 # Declare characters used by this game. The color argument colorizes the
 # name of the character.
 
 # Here we are defining global variables, including characters and counters, for this game
 define MM = Character("Mr. Holmes")
-define MC = Character("[povname]")
+define MC = Character("Detective [povname]")
 define SC = Character("Kevin Ng")
 define JC = Character("Spencer Johnson")
 
@@ -68,11 +68,12 @@ label start:
     # This is where the game begins
     play music "Sound Effects/piano bg.mp3"
 
-    "As the city's best detective, it is your job to interview the death of a student from the local prepatory school."
+    "As the city's best detective, it is your job to investigate the death of a student from the local prepatory school."
 
     "Jasmine Gray, a senior at Pleasant Valley, disappeared last night and was discovered to have been murdered. "
     "There are no traces of the murderer except for a bit of matcha powder left on the scene, a hallmark of the once infamous Matcha Man killer."
     "He disappeared off the grid years ago: could he have possibly come back?"
+
 
     MC "Well, it's time to start the day."
     menu:
@@ -190,7 +191,7 @@ label start:
     label Classmate_P3:
         show SC 
         menu:
-            "What do you remember about that day?" :
+            "What do you remember about that night?" :
                 jump Classmate_P3_1
             "What were you doing that night?":
                 jump Classmate_P3_2
@@ -218,7 +219,6 @@ label start:
     label Classmate_P4_2:
         SC "He's been working this job for as long as anyone can remember. Don't know why, though— he hates it here, hate us kids specifically."
         SC "Says it's because we always leave our bubble tea cups around."
-        MC "Huh, interesting."
         jump Classmate_Last
 
     label Classmate_Last:
@@ -254,7 +254,7 @@ label start:
         MC "After the classmate Kevin was convicted for the murder using my evidence, I felt at ease. The city was safe."
         MC "When I returned home, however, something seemed to overwhelm me. The smell of...matcha."
         MC "It must be a trick. Surely."
-        MC "But when I turned around, I saw it— the letter, and the tell tale dust of matcha powder right on top."
+        MC "But when I turend around, I saw it— the letter, and the tell tale dust of matcha powder right on top."
         "{i}YOU'RE NEXT{/i}"
         scene bg blackscreen
         "BAD ENDING"
