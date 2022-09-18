@@ -224,7 +224,7 @@ label start:
         hide SC
         MC "After I finish talking to the student, I assess my choices."
         menu:
-            "Talk to The Classmatea gain.":
+            "Talk to The Classmate again.":
                 jump Classmate_Begin
             "Talk to The Teacher.":
                 jump Teacher_Begin
