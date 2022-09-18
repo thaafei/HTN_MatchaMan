@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 56: expected statement.
-    choice("Make a choice")
-                           ^
+File "game/script.rpy", line 66: expected menuitem
+    python:
+    ^
 
 Ren'Py Version: Ren'Py 8.0.3.22090809
-Sat Sep 17 12:49:05 2022
+Sat Sep 17 18:20:30 2022
