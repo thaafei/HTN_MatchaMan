@@ -35,6 +35,7 @@ image bg sunset2 = "bg schoolsunset_2.jpg"
 image bg blackscreen = "bg blackscreen.jpg"
 image bg outside = "bg outside.jpg"
 image bg classroom = "bg classroom.jpg"
+image bg bed_night = "bg bed_night.jpg"
 
 
 label start:
@@ -178,7 +179,14 @@ label start:
     label Janitor_Ending:
         return
     label Classmate_Ending:
-        return
+        scene bed_night
+        MC "After the classmate Kevin was convicted for the murder using my evidence, I felt at ease. The city was safe."
+        MC "When I returned home, however, something seemed to overwhelm me. The smell of...matcha."
+        MC "It must be a trick. Surely."
+        MC "But when I turend around, I saw it— the letter, and the tell tale dust of matcha powder right on top."
+        "{i}YOU'RE NEXT{/i}"
+        scene blackscreen
+        "BAD ENDING"
     
     # This ends the game.
 
