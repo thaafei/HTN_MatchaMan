@@ -66,9 +66,16 @@ label start:
 
     # This is where the game begins
     play music "Sound Effects/piano bg.mp3"
+
+    "As the city's best detective, it is your job to interview the death of a student from the local prepatory school."
+
+    "There are no traces of the murderer except for a bit of matcha powder left on the scene, a hallmark of the once infamous Matcha Man killer."
+
+    "He disappeared off the grid years ago: could he have possibly come back?"
+
+    MC "Well, it's time to start the day."
     menu:
-        "As the city's best detective, it is your job to interview the death of a student from the local prepatory school.\n
-        Who would you like to interrogate first?"
+        "Who would you like to interrogate first?"
 
         "The Teacher": 
             jump Teacher_Begin
