@@ -9,19 +9,6 @@ define MC = Character("[povname]")
 define SC = Character("Kevin Ng")
 define JC = Character("Spencer Johnson")
 
-define good_ending = 0
-define bad_ending = 0
-
-init python:
-    def choice(player_prompt):
-        choice_test = renpy.input(player_prompt,length=32)
-        choice_test.strip()
-
-        if not choice_test:
-            bad_ending += 1
-        else:
-            good_ending += 1
-
 # Here we are loading in all the images used in this game
 
 # Matcha man / teacher 
@@ -42,8 +29,17 @@ image SC Angry = "SC Angry.png"
 
 # The game starts here.
 
+# Here we are loading in all the images used in this game
+image bg sunset1 = "bg schoolsunset_1.jpg"
+image bg sunset2 = "bg schoolsunset_2.jpg"
+image bg blackscreen = "bg blackscreen.jpg"
+image bg outside = "bg outside.jpg"
+image bg classroom = "bg classroom.jpg"
+
+
 label start:
     #Gets the user input for name
+
     python:
         povname = renpy.input("What is your name?", length=32)
         povname = povname.strip()
@@ -51,35 +47,51 @@ label start:
         if not povname:
             povname = "Williana Wonkas"
 
-    scene bg cat
+    scene bg sunset1
+    "Pleasant Valley Prepatory..."
 
-    show JC Annoyed 
-    MM "This is MM"
-    hide JC Annoyed 
+    scene bg sunset2
+    "A school known for its flawless reputation and distinguished staff..."
 
-    show MM Sad
-    MC "This is MM Sad"
-    hide MM Sad
+    scene bg blackscreen
+    "But what happens when something goes wrong?"
+
+    play sound "glass.ogg"
+
+    scene bg outside
+    "Well, you know what they say... The most unlikely places are the darkest of them all."
+    play sound "sirens.ogg"
+
+    scene bg outside
+
+    # This is where the game begins
+    menu:
+        "As the city's best detective, it is your job to interview the death of a student from the local prepatory school.\n
+        Who would you like to interrogate first?"
+
+        "The Teacher": 
+            jump Teacher_Begin
+        "The Janitor":
+            jump Janitor_Begin
+        "The Classmate":
+            jump Classmate_Begin
     
-    show MM Reveal
-    SC "This is MM Reveal"
-    hide MM Reveal
-
-    python:
-        choice_test = renpy.input("Make a choice",length=32)
-        choice_test.strip().lower()
-
-        if not choice_test:
-            bad_ending += 1
-        else:
-            good_ending += 1
-
-    #choice("Make a choice")
-
-    #if bad_ending >= 1:
-    #    MM "This is the bad ending"
-    #else:
-    #    MC "This is the good ending"
+    label Teacher_Begin:
+        return
+    label Janitor_Begin:
+        return
+    label Classmate_Begin:
+        menu:
+            "What's your name?":
+                jump Classmate_Intro1
+            "Well, go on.":
+                jump Classmate_Intro2
+    label Classmate_Intro1:
+        "My name is Kevin. I'm a classmate of...you know, them."
+        "Or I guess I was."
+    label Classmate_Intro2:
+        "Oh, you want me to just start talking? Well, fine. I'm Kevin. I'm a classmate of...you know, them."
+        "Or I guess I was."
 
     # This ends the game.
 
