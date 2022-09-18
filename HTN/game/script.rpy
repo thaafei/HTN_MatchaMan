@@ -1,18 +1,13 @@
-﻿# The script of the game goes in this file.
+# The script of the game goes in this file.
 
 # Declare characters used by this game. The color argument colorizes the
 # name of the character.
 
 # Here we are defining global variables, including characters and counters, for this game
-define MM = Character("Teacher")
+define MM = Character("Mr. Holmes")
 define MC = Character("[povname]")
 define SC = Character("Kevin Ng")
 define JC = Character("Spencer Johnson")
-
-#music/sound files
-define audio.glass = "/Sound Effects/glass.ogg"
-define audio.sirens = "/Sound Effects/sirens.ogg"
-define audio.bg_start = "/Sound Effects/piano bg.mp3"
 
 # Here we are loading in all the images used in this game
 
@@ -52,27 +47,24 @@ label start:
         if not povname:
             povname = "Williana Wonkas"
 
-    play sound bg_start
-
     scene bg sunset1
-    "Pleasant Valley Prepatory..."
+    MC "Pleasant Valley Prepatory..."
 
     scene bg sunset2
-    "A school known for its flawless reputation and distinguished staff..."
-
-    stop sound
+    MC "A school known for its flawless reputation and distinguished staff..."
 
     scene bg blackscreen
-    "But what happens when something goes wrong?"
+    MC "But what happens when something goes wrong?"
 
-    play sound glass
-
-    scene bg outside
-    "Well, you know what they say... The most unlikely places are the darkest of them all."
-    play sound sirens
+    play sound "glass.ogg"
 
     scene bg outside
+    MC "Well, you know what they say... The most unlikely places are the darkest of them all."
+    play sound "sirens.ogg"
 
+    scene bg outside
+
+    # This is where the game begins
     menu:
         "As the city's best detective, it is your job to interview the death of a student from the local prepatory school.\n
         Who would you like to interrogate first?"
@@ -89,44 +81,20 @@ label start:
     label Janitor_Begin:
         return
     label Classmate_Begin:
+        show SC
         menu:
             "What's your name?":
-                jump Classmate_Input1
-            "Tell me about yourself, what do you do?":
-                jump Classmate_Input2
-            "Where were you when the crime happened?":
-                jump Classmate_Input3
-            "Do you have any motives":
-                jump Classmate_Input4
-            "Who do you think it is?":
-                jump Classmate_Input5
-    label Classmate_Input1:
-        show SC
-        "My name is Kevin. I'm a classmate of...you know, them."
-        show SC Sad
-        "Or I guess I was."
-<<<<<<< HEAD
-        return Classmate_Begin
-    label Classmate_Input2:
-        show SC
-        "Well, I'm a honor student at Pleasant Valley Prepatory. My dad's a CEO for Intale"
-        return Classmate_Begin
-    label Classmate_Input3:
-        show SC
-        "Well, I'm a honor student at Pleasant Valley Prepatory. My dad's a CEO for Intale"
-        return Classmate_Begin
-    label Classmate_Input4:
-        show SC
-        "Well, I'm a honor student at Pleasant Valley Prepatory. My dad's a CEO for Intale"
-        return Classmate_Begin
-    label Classmate_Input5:
-        show SC
-        "Well, I'm a honor student at Pleasant Valley Prepatory. My dad's a CEO for Intale"
-        return Classmate_Begin
-=======
+                jump Classmate_Intro1
+            "Well, go on.":
+                jump Classmate_Intro2
+    label Classmate_Intro1:
+        SC "My name is Kevin. I'm a classmate of...you know, them."
+        jump Classmate_P2
+        
     label Classmate_Intro2:
-        "Oh, you want me to just start talking? Well, fine. I'm Kevin. I'm a classmate of...you know, them."
-        "Or I guess I was."
+        SC "Oh, you want me to just start talking? Well, fine. I'm Kevin. I'm a classmate of...you know, them."
+        jump Classmate_P2
+    
     label Classmate_P2:
         show SC Sad
         SC "Well, I guess I was."
@@ -138,21 +106,56 @@ label start:
     label Classmate_P2_1:
         show SC Angry
         SC "Something like that."
-        jump Classmate_3
->>>>>>> 2f0d08839a04dbd3cfb1959c7f4d31bea3e14de8
+        jump Classmate_P3
 
     label Classmate_P2_2:
         show SC Angry
         SC "We...used to be well acquainted."
-        jump Classmate_3
+        jump Classmate_P3
 
-    label Classmate_3:
-        jump End_Choice # TENTATIVE: will branch into further questions, just wanted to test
+    label Classmate_P3:
+        show SC 
+        menu:
+            "What do you remember about that night?" :
+                jump Classmate_P3_1
+            "What were you doing that night?":
+                jump Classmate_P3_2
+    label Classmate_P3_1:
+        SC "I was in Mr. Holmes class last  period, and headed to the local bubble tea place after class."
+        jump Classmate_P4
+
+    label Classmate_P3_2:
+        SC "I was just studying at the local bubble tea place after my last class with Mr. Holmes."
+        jump Classmate_P4
+    
+    label Classmate_P4:
+        SC "That grumpy janitor was there again, so everyone wanted to leave the school quickly."
+        menu:
+            "What can you tell me about the teacher?":
+                jump Classmate_P4_1
+            "What can you tell me about the janitor?":
+                jump Classmate_P4_2
+
+    label Classmate_P4_1:
+        SC "Apparently he just...appeared in town one day and he's been here since. I've never seen him without his green tea."
+        jump Classmate_Last
+    label Classmate_P4_2:
+        SC "He's been working this job for as long as anyone can remember. Don't know why, though— he hates it here, hate us kids specifically"
+        jump Classmate_Last
+    label Classmate_Last:
+        MC "After I finish talking to the student, I assess my choices"
+        menu:
+            "Talk to The Teacher.":
+                jump Teacher_Begin
+            "Talk to The Janitor.":
+                jump Janitor_Begin
+            "Make your decision.":
+                jump End_Choice
 
     label End_Choice:
         scene bg schoolsunset_1
-        "Well, that was a long day of interrogations."
-        "After everything, though, I feel like I know who the guilty party is."
+        MC "Well, that was a long day of interrogations."
+        MC "After everything, though, I feel like I know who the guilty party is."
         menu:
             "The Teacher":
                 jump Teacher_Ending
