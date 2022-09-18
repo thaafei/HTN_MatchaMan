@@ -190,7 +190,7 @@ label start:
     label Classmate_P3:
         show SC 
         menu:
-            "What do you remember about that night?" :
+            "What do you remember about that day?" :
                 jump Classmate_P3_1
             "What were you doing that night?":
                 jump Classmate_P3_2
@@ -218,6 +218,7 @@ label start:
     label Classmate_P4_2:
         SC "He's been working this job for as long as anyone can remember. Don't know why, though— he hates it here, hate us kids specifically."
         SC "Says it's because we always leave our bubble tea cups around."
+        MC "Huh, interesting."
         jump Classmate_Last
 
     label Classmate_Last:
@@ -253,7 +254,7 @@ label start:
         MC "After the classmate Kevin was convicted for the murder using my evidence, I felt at ease. The city was safe."
         MC "When I returned home, however, something seemed to overwhelm me. The smell of...matcha."
         MC "It must be a trick. Surely."
-        MC "But when I turend around, I saw it— the letter, and the tell tale dust of matcha powder right on top."
+        MC "But when I turned around, I saw it— the letter, and the tell tale dust of matcha powder right on top."
         "{i}YOU'RE NEXT{/i}"
         scene bg blackscreen
         "BAD ENDING"
