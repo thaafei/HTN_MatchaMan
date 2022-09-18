@@ -5,7 +5,7 @@
 
 # Here we are defining global variables, including characters and counters, for this game
 define MM = Character("Mr. Holmes")
-define MC = Character("[povname]")
+define MC = Character("Detective [povname]")
 define SC = Character("Kevin Ng")
 define JC = Character("Spencer Johnson")
 
@@ -68,11 +68,12 @@ label start:
     # This is where the game begins
     play music "Sound Effects/piano bg.mp3"
 
-    "As the city's best detective, it is your job to interview the death of a student from the local prepatory school."
+    "As the city's best detective, it is your job to investigate the death of a student from the local prepatory school."
 
+    "Jasmine Gray, a senior at Pleasant Valley, disappeared last night and was discovered to have been murdered. "
     "There are no traces of the murderer except for a bit of matcha powder left on the scene, a hallmark of the once infamous Matcha Man killer."
-
     "He disappeared off the grid years ago: could he have possibly come back?"
+
 
     MC "Well, it's time to start the day."
     menu:
@@ -86,7 +87,69 @@ label start:
             jump Classmate_Begin
     
     label Teacher_Begin:
-        return
+        show MM
+        menu: 
+            "State your name and occupation.":
+                jump Teacher_Intro1
+            "What's your name?":
+                jump Teacher_Intro2
+
+    label Teacher_Intro1:
+        show MM
+        MM "Jerry Holmes, and a teacher, obviously."
+        jump Teacher_P2
+    
+    label Teacher_Intro2:
+        show MM
+        MM "The kids call me Mr.Holmes, I teach their English and Foreign Language Classes."
+        jump Teacher_P2
+    
+    label Teacher_P2:
+        show MM
+        MC "What can you tell me about that day, did you notice the victim acting strange?"
+
+        MM "Jasmine did seem a litte reserved. From the classroom gossip, it sounds like her boyfriend broke up with her, something about adultary? "
+
+        menu:
+            "Tell me about this boyfriend of hers.":
+                jump Teacher_P3_1
+            "Tell me more about you.":
+                jump Teacher_P3_2
+
+    label Teacher_P3_1:
+        show MM
+        MM "Kevin? He does well enough in school and sports. Although he does have a bit of a hot-temper."
+        MC "A hot-temper?"
+        MM "Yes, the reason he transferred to our prepatory was because he would frequently get into fights at his old school."
+        MC "Hmm.. noted."
+        jump Teacher_Last
+
+
+    label Teacher_P3_2:
+        show MM Sad
+        MM "I'm devasted, it's a sad day when a student misses a class for a day... now this..."
+        MM "Jasmine was always a ray of sunshine, she had an interest in tea as well."
+        MM "We would frequently discuss on tea brewing techniques after classes..."
+        "........."
+        MM "I'm sorry, I need a minute.."
+        MC "Of course"
+        jump Teacher_Last
+
+    label Teacher_Last:
+        hide MM Sad
+        hide MM
+
+        MC "After I finish talking to the teacher, I assess my choices."
+        menu:
+            "Talk to The Teacher again.":
+                jump Teacher_Begin
+            "Talk to The Classmate":
+                jump Classmate_Begin   
+            "Talk to The Janitor.":
+                jump Janitor_Begin
+            "Make your decision.":
+                jump End_Choice
+        
     label Janitor_Begin:
         return
     label Classmate_Begin:
@@ -156,6 +219,8 @@ label start:
         hide SC
         MC "After I finish talking to the student, I assess my choices."
         menu:
+            "Talk to The Classmate again.":
+                jump Classmate_Begin
             "Talk to The Teacher.":
                 jump Teacher_Begin
             "Talk to The Janitor.":
