@@ -9,6 +9,11 @@ define MC = Character("[povname]")
 define SC = Character("Kevin Ng")
 define JC = Character("Spencer Johnson")
 
+#music/sound files
+define audio.glass = "/Sound Effects/glass.ogg"
+define audio.sirens = "/Sound Effects/sirens.ogg"
+define audio.bg_start = "/Sound Effects/piano bg.mp3"
+
 # Here we are loading in all the images used in this game
 
 # Matcha man / teacher 
@@ -47,24 +52,27 @@ label start:
         if not povname:
             povname = "Williana Wonkas"
 
+    play sound bg_start
+
     scene bg sunset1
     "Pleasant Valley Prepatory..."
 
     scene bg sunset2
     "A school known for its flawless reputation and distinguished staff..."
 
+    stop sound
+
     scene bg blackscreen
     "But what happens when something goes wrong?"
 
-    play sound "glass.ogg"
+    play sound glass
 
     scene bg outside
     "Well, you know what they say... The most unlikely places are the darkest of them all."
-    play sound "sirens.ogg"
+    play sound sirens
 
     scene bg outside
 
-    # This is where the game begins
     menu:
         "As the city's best detective, it is your job to interview the death of a student from the local prepatory school.\n
         Who would you like to interrogate first?"
@@ -83,15 +91,37 @@ label start:
     label Classmate_Begin:
         menu:
             "What's your name?":
-                jump Classmate_Intro1
-            "Well, go on.":
-                jump Classmate_Intro2
-    label Classmate_Intro1:
+                jump Classmate_Input1
+            "Tell me about yourself, what do you do?":
+                jump Classmate_Input2
+            "Where were you when the crime happened?":
+                jump Classmate_Input3
+            "Do you have any motives":
+                jump Classmate_Input4
+            "Who do you think it is?":
+                jump Classmate_Input5
+    label Classmate_Input1:
+        show SC
         "My name is Kevin. I'm a classmate of...you know, them."
+        show SC Sad
         "Or I guess I was."
-    label Classmate_Intro2:
-        "Oh, you want me to just start talking? Well, fine. I'm Kevin. I'm a classmate of...you know, them."
-        "Or I guess I was."
+        return Classmate_Begin
+    label Classmate_Input2:
+        show SC
+        "Well, I'm a honor student at Pleasant Valley Prepatory. My dad's a CEO for Intale"
+        return Classmate_Begin
+    label Classmate_Input3:
+        show SC
+        "Well, I'm a honor student at Pleasant Valley Prepatory. My dad's a CEO for Intale"
+        return Classmate_Begin
+    label Classmate_Input4:
+        show SC
+        "Well, I'm a honor student at Pleasant Valley Prepatory. My dad's a CEO for Intale"
+        return Classmate_Begin
+    label Classmate_Input5:
+        show SC
+        "Well, I'm a honor student at Pleasant Valley Prepatory. My dad's a CEO for Intale"
+        return Classmate_Begin
 
     # This ends the game.
 
