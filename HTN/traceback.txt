@@ -1,51 +1,51 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/script.rpy", line 58, in script
-    "Pleasant Valley Prepatory..."
-  File "renpy/common/000window.rpy", line 114, in _window_auto_callback
-    _window_show(auto=True)
-  File "renpy/common/000window.rpy", line 69, in _window_show
+  File "game/script.rpy", line 61, in script
+    scene bg outside
+  File "renpy/common/000window.rpy", line 111, in _window_auto_callback
+    _window_hide(auto=True)
+  File "renpy/common/000window.rpy", line 101, in _window_hide
     renpy.with_statement(trans)
-OSError: Couldn't find file 'Sound Effects/piano bg.ogg'.
+OSError: Couldn't find file 'glass.ogg'.
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/script.rpy", line 58, in script
-    "Pleasant Valley Prepatory..."
-  File "C:\Users\fiona\Documents\renpy-8.0.3-sdk\renpy\ast.py", line 891, in execute
-    statement_name("say")
-  File "C:\Users\fiona\Documents\renpy-8.0.3-sdk\renpy\ast.py", line 47, in statement_name
+  File "game/script.rpy", line 61, in script
+    scene bg outside
+  File "C:\Users\amand\Downloads\renpy-8.0.3-sdk\renpy\ast.py", line 1537, in execute
+    statement_name("scene")
+  File "C:\Users\amand\Downloads\renpy-8.0.3-sdk\renpy\ast.py", line 47, in statement_name
     i(name)
-  File "renpy/common/000window.rpy", line 114, in _window_auto_callback
-    _window_show(auto=True)
-  File "renpy/common/000window.rpy", line 69, in _window_show
+  File "renpy/common/000window.rpy", line 111, in _window_auto_callback
+    _window_hide(auto=True)
+  File "renpy/common/000window.rpy", line 101, in _window_hide
     renpy.with_statement(trans)
-  File "C:\Users\fiona\Documents\renpy-8.0.3-sdk\renpy\exports.py", line 1657, in with_statement
+  File "C:\Users\amand\Downloads\renpy-8.0.3-sdk\renpy\exports.py", line 1657, in with_statement
     return renpy.game.interface.do_with(trans, paired, clear=clear)
-  File "C:\Users\fiona\Documents\renpy-8.0.3-sdk\renpy\display\core.py", line 2798, in do_with
+  File "C:\Users\amand\Downloads\renpy-8.0.3-sdk\renpy\display\core.py", line 2798, in do_with
     return self.interact(trans_pause=True,
-  File "C:\Users\fiona\Documents\renpy-8.0.3-sdk\renpy\display\core.py", line 3377, in interact
+  File "C:\Users\amand\Downloads\renpy-8.0.3-sdk\renpy\display\core.py", line 3377, in interact
     repeat, rv = self.interact_core(preloads=preloads, trans_pause=trans_pause, pause=pause, pause_start=pause_start, pause_modal=pause_modal, **kwargs) # type: ignore
-  File "C:\Users\fiona\Documents\renpy-8.0.3-sdk\renpy\display\core.py", line 4103, in interact_core
+  File "C:\Users\amand\Downloads\renpy-8.0.3-sdk\renpy\display\core.py", line 4103, in interact_core
     renpy.audio.audio.periodic()
-  File "C:\Users\fiona\Documents\renpy-8.0.3-sdk\renpy\audio\audio.py", line 1166, in periodic
+  File "C:\Users\amand\Downloads\renpy-8.0.3-sdk\renpy\audio\audio.py", line 1166, in periodic
     raise_(exc[0], exc[1], exc[2])
   File "/home/tom/ab/renpy-build/tmp/install.linux-x86_64/lib/python3.9/site-packages/future/utils/__init__.py", line 441, in raise_
-  File "C:\Users\fiona\Documents\renpy-8.0.3-sdk\renpy\audio\audio.py", line 1144, in periodic_thread_main
+  File "C:\Users\amand\Downloads\renpy-8.0.3-sdk\renpy\audio\audio.py", line 1144, in periodic_thread_main
     periodic_pass()
-  File "C:\Users\fiona\Documents\renpy-8.0.3-sdk\renpy\audio\audio.py", line 1086, in periodic_pass
+  File "C:\Users\amand\Downloads\renpy-8.0.3-sdk\renpy\audio\audio.py", line 1086, in periodic_pass
     c.periodic()
-  File "C:\Users\fiona\Documents\renpy-8.0.3-sdk\renpy\audio\audio.py", line 517, in periodic
+  File "C:\Users\amand\Downloads\renpy-8.0.3-sdk\renpy\audio\audio.py", line 517, in periodic
     topf = load(filename)
-  File "C:\Users\fiona\Documents\renpy-8.0.3-sdk\renpy\audio\audio.py", line 70, in load
+  File "C:\Users\amand\Downloads\renpy-8.0.3-sdk\renpy\audio\audio.py", line 70, in load
     rv = renpy.loader.load(fn)
-  File "C:\Users\fiona\Documents\renpy-8.0.3-sdk\renpy\loader.py", line 820, in load
+  File "C:\Users\amand\Downloads\renpy-8.0.3-sdk\renpy\loader.py", line 820, in load
     raise IOError("Couldn't find file '%s'." % name)
-OSError: Couldn't find file 'Sound Effects/piano bg.ogg'.
+OSError: Couldn't find file 'glass.ogg'.
 
-Windows-10-10.0.19044 AMD64
+Windows-10-10.0.22000 AMD64
 Ren'Py 8.0.3.22090809
 HTN 1.0
-Sat Sep 17 22:50:28 2022
+Sat Sep 17 21:44:12 2022

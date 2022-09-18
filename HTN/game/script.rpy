@@ -1,4 +1,4 @@
-# The script of the game goes in this file.
+﻿# The script of the game goes in this file.
 
 # Declare characters used by this game. The color argument colorizes the
 # name of the character.
@@ -56,15 +56,16 @@ label start:
     scene bg blackscreen
     MC "But what happens when something goes wrong?"
 
-    play sound "glass.ogg"
+    play sound "Sound Effects/glass.ogg"
 
     scene bg outside
     MC "Well, you know what they say... The most unlikely places are the darkest of them all."
-    play sound "sirens.ogg"
+    play sound "Sound Effects/sirens.ogg"
 
     scene bg outside
 
     # This is where the game begins
+    play music "Sound Effects/piano bg.mp3"
     menu:
         "As the city's best detective, it is your job to interview the death of a student from the local prepatory school.\n
         Who would you like to interrogate first?"
@@ -140,10 +141,12 @@ label start:
         SC "Apparently he just...appeared in town one day and he's been here since. I've never seen him without his green tea."
         jump Classmate_Last
     label Classmate_P4_2:
-        SC "He's been working this job for as long as anyone can remember. Don't know why, though— he hates it here, hate us kids specifically"
+        SC "He's been working this job for as long as anyone can remember. Don't know why, though— he hates it here, hate us kids specifically."
+        SC "Says it's because we always leave our bubble tea cups around."
         jump Classmate_Last
     label Classmate_Last:
-        MC "After I finish talking to the student, I assess my choices"
+        hide SC
+        MC "After I finish talking to the student, I assess my choices."
         menu:
             "Talk to The Teacher.":
                 jump Teacher_Begin
