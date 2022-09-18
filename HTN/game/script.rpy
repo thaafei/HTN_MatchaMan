@@ -1,10 +1,10 @@
-﻿# The script of the game goes in this file.
+# The script of the game goes in this file.
 
 # Declare characters used by this game. The color argument colorizes the
 # name of the character.
 
 # Here we are defining global variables, including characters and counters, for this game
-define MM = Character("Teacher")
+define MM = Character("Mr. Holmes")
 define MC = Character("[povname]")
 define SC = Character("Kevin Ng")
 define JC = Character("Spencer Johnson")
@@ -48,18 +48,18 @@ label start:
             povname = "Williana Wonkas"
 
     scene bg sunset1
-    "Pleasant Valley Prepatory..."
+    MC "Pleasant Valley Prepatory..."
 
     scene bg sunset2
-    "A school known for its flawless reputation and distinguished staff..."
+    MC "A school known for its flawless reputation and distinguished staff..."
 
     scene bg blackscreen
-    "But what happens when something goes wrong?"
+    MC "But what happens when something goes wrong?"
 
     play sound "glass.ogg"
 
     scene bg outside
-    "Well, you know what they say... The most unlikely places are the darkest of them all."
+    MC "Well, you know what they say... The most unlikely places are the darkest of them all."
     play sound "sirens.ogg"
 
     scene bg outside
@@ -106,20 +106,56 @@ label start:
     label Classmate_P2_1:
         show SC Angry
         SC "Something like that."
-        jump Classmate_3
+        jump Classmate_P3
 
     label Classmate_P2_2:
         show SC Angry
         SC "We...used to be well acquainted."
-        jump Classmate_3
+        jump Classmate_P3
 
-    label Classmate_3:
-        jump End_Choice # TENTATIVE: will branch into further questions, just wanted to test
+    label Classmate_P3:
+        show SC 
+        menu:
+            "What do you remember about that night?" :
+                jump Classmate_P3_1
+            "What were you doing that night?":
+                jump Classmate_P3_2
+    label Classmate_P3_1:
+        SC "I was in Mr. Holmes class last  period, and headed to the local bubble tea place after class."
+        jump Classmate_P4
+
+    label Classmate_P3_2:
+        SC "I was just studying at the local bubble tea place after my last class with Mr. Holmes."
+        jump Classmate_P4
+    
+    label Classmate_P4:
+        SC "That grumpy janitor was there again, so everyone wanted to leave the school quickly."
+        menu:
+            "What can you tell me about the teacher?":
+                jump Classmate_P4_1
+            "What can you tell me about the janitor?":
+                jump Classmate_P4_2
+
+    label Classmate_P4_1:
+        SC "Apparently he just...appeared in town one day and he's been here since. I've never seen him without his green tea."
+        jump Classmate_Last
+    label Classmate_P4_2:
+        SC "He's been working this job for as long as anyone can remember. Don't know why, though— he hates it here, hate us kids specifically"
+        jump Classmate_Last
+    label Classmate_Last:
+        MC "After I finish talking to the student, I assess my choices"
+        menu:
+            "Talk to The Teacher.":
+                jump Teacher_Begin
+            "Talk to The Janitor.":
+                jump Janitor_Begin
+            "Make your decision.":
+                jump End_Choice
 
     label End_Choice:
         scene bg schoolsunset_1
-        "Well, that was a long day of interrogations."
-        "After everything, though, I feel like I know who the guilty party is."
+        MC "Well, that was a long day of interrogations."
+        MC "After everything, though, I feel like I know who the guilty party is."
         menu:
             "The Teacher":
                 jump Teacher_Ending
