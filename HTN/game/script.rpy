@@ -1,12 +1,13 @@
-# The script of the game goes in this file.
+﻿# The script of the game goes in this file.
 
 # Declare characters used by this game. The color argument colorizes the
 # name of the character.
 
 # Here we are defining global variables, including characters and counters, for this game
-define MM = Character("Matcha Man")
+define MM = Character("Teacher")
 define MC = Character("[povname]")
-define SC = Character("Billy Bob")
+define SC = Character("Kevin Ng")
+define JC = Character("Spencer Johnson")
 
 define good_ending = 0
 define bad_ending = 0
@@ -22,11 +23,22 @@ init python:
             good_ending += 1
 
 # Here we are loading in all the images used in this game
-image bg bbt = "bg bbt.jpg"
-image bg cat = "bg cat.png"
-image MM normal = "MM normal.png"
-image MC normal = "MC normal.png"
-image SC normal = "SC normal.png"
+
+# Matcha man / teacher 
+image MM = "MM.png"
+image MM Sad = "MM Sad.png"
+image MM Reveal = "MM Reveal.png"
+
+# Janitor
+image JC = "JC.png"
+image JC Angry = "JC Angry.png"
+image JC Annoyed = "JC Annoyed.png"
+
+#Classmate
+image SC = "SC.png"
+image SC Sad = "SC Sad.png"
+image SC Angry = "SC Angry.png"
+
 
 # The game starts here.
 
@@ -41,17 +53,17 @@ label start:
 
     scene bg cat
 
-    show MM normal
+    show JC Annoyed 
     MM "This is MM"
-    hide MM normal
+    hide JC Annoyed 
 
-    show MC normal
-    MC "This is MC"
-    hide MC normal
+    show MM Sad
+    MC "This is MM Sad"
+    hide MM Sad
     
-    show SC normal
-    SC "This is SC"
-    hide SC normal
+    show MM Reveal
+    SC "This is MM Reveal"
+    hide MM Reveal
 
     python:
         choice_test = renpy.input("Make a choice",length=32)
@@ -62,12 +74,12 @@ label start:
         else:
             good_ending += 1
 
-    choice("Make a choice")
+    #choice("Make a choice")
 
-    if bad_ending >= 1:
-        MM "This is the bad ending"
-    else:
-        MC "This is the good ending"
+    #if bad_ending >= 1:
+    #    MM "This is the bad ending"
+    #else:
+    #    MC "This is the good ending"
 
     # This ends the game.
 
