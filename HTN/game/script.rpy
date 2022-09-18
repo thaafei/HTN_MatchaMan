@@ -105,6 +105,7 @@ label start:
         "My name is Kevin. I'm a classmate of...you know, them."
         show SC Sad
         "Or I guess I was."
+<<<<<<< HEAD
         return Classmate_Begin
     label Classmate_Input2:
         show SC
@@ -122,7 +123,50 @@ label start:
         show SC
         "Well, I'm a honor student at Pleasant Valley Prepatory. My dad's a CEO for Intale"
         return Classmate_Begin
+=======
+    label Classmate_Intro2:
+        "Oh, you want me to just start talking? Well, fine. I'm Kevin. I'm a classmate of...you know, them."
+        "Or I guess I was."
+    label Classmate_P2:
+        show SC Sad
+        SC "Well, I guess I was."
+        menu: 
+            "Were you friends?":
+                jump Classmate_P2_1
+            "What was your relationship like?":
+                jump Classmate_P2_2
+    label Classmate_P2_1:
+        show SC Angry
+        SC "Something like that."
+        jump Classmate_3
+>>>>>>> 2f0d08839a04dbd3cfb1959c7f4d31bea3e14de8
 
+    label Classmate_P2_2:
+        show SC Angry
+        SC "We...used to be well acquainted."
+        jump Classmate_3
+
+    label Classmate_3:
+        jump End_Choice # TENTATIVE: will branch into further questions, just wanted to test
+
+    label End_Choice:
+        scene bg schoolsunset_1
+        "Well, that was a long day of interrogations."
+        "After everything, though, I feel like I know who the guilty party is."
+        menu:
+            "The Teacher":
+                jump Teacher_Ending
+            "The Janitor":
+                jump Janitor_Ending
+            "The Classmate":
+                jump Classmate_Ending
+    label Teacher_Ending:
+        return
+    label Janitor_Ending:
+        return
+    label Classmate_Ending:
+        return
+    
     # This ends the game.
 
     return
